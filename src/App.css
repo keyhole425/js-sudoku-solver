@@ -1,0 +1,25 @@
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.sudoku-container {
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.sudoku-row {
+  display: inherit;
+  flex-direction: row;
+}
+
+.sudoku-input {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-size: larger;
+}
