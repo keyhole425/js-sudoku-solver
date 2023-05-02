@@ -4,15 +4,15 @@ import './App.css';
 
 // Testing State
 const START_GRID = [
-  [4, 0, 5, 7, 0, 0, 0, 0, 6],
-  [0, 0, 0, 0, 0, 2, 0, 9, 0],
-  [8, 9, 0, 0, 0, 0, 0, 3, 7],
-  [1, 3, 4, 8, 9, 0, 6, 7, 0],
-  [9, 6, 0, 2, 7, 4, 5, 1, 0],
-  [0, 0, 0, 0, 0, 3, 8, 4, 0],
-  [3, 0, 9, 0, 2, 6, 0, 0, 0],
-  [0, 5, 0, 0, 0, 0, 0, 0, 4],
-  [0, 0, 0, 9, 5, 0, 0, 6, 0]
+  [0, 2, 0, 1, 9, 0, 0, 0, 0],
+  [4, 0, 3, 0, 0, 7, 8, 9, 0],
+  [0, 0, 0, 0, 4, 0, 3, 6, 0],
+  [0, 0, 0, 9, 0, 0, 0, 5, 4],
+  [3, 0, 0, 0, 0, 0, 0, 0, 8],
+  [5, 8, 0, 0, 0, 1, 0, 0, 0],
+  [0, 6, 5, 0, 1, 0, 0, 0, 0],
+  [0, 9, 2, 3, 0, 0, 6, 0, 5],
+  [0, 0, 0, 0, 7, 5, 0, 8, 0]
 ];
 
 // Start State
@@ -37,7 +37,6 @@ function SudokuSolver() {
     
     if (newValue >= 0 && newValue <= 9) {
       newGrid[row][index] = newValue;
-      console.log('newGrid:', newGrid);
       setGrid(newGrid);
     }
   };
@@ -86,22 +85,31 @@ function SudokuSolver() {
     );
   }
 
+  const generateButtonBar = () => {
+    return (
+      <div className='button-bar'>
+        <h2>How To Use</h2>
+        <p>
+          Set up the sudoku puzzle that is to be solved by entering numbers directly into the grid to the left. 
+        </p>
+        <p>
+          Once you are happy, click the "Solve" button below to see the solution.
+        </p>
+        <br/>
+        <h2>Actions</h2>
+        <button onClick={solveSudoku} className='solve-button'>Solve</button>
+        <button onClick={resetSudoku} className='solve-button'>Reset</button>
+      </div>
+    );
+  }
+
   return (
     <div className='app'>
       <div className='sudoku-container'>
         <h2>Sudoku Solver</h2>
         {grid.map((row, index) => generateSudokuRow(row, index))}
       </div>
-      <div className='button-bar'>
-        <h4>How To Use</h4>
-        <p>
-          Add the digits directly into the squares to the left.
-          <br/><br/>
-          Once you are happy, click the "Solve" button below to see the solution.
-        </p>
-        <button onClick={solveSudoku} className='solve-button'>Solve</button>
-        <button onClick={resetSudoku} className='solve-button'>Reset</button>
-      </div>
+      {generateButtonBar()}
     </div>
   );
 }

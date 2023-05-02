@@ -7,9 +7,8 @@
 */
 function calculateSolution(grid) {
   const newGrid = [...grid];
-
   processGrid(newGrid, 0);
-  
+
   return newGrid;
 }
 

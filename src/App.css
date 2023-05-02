@@ -2,11 +2,17 @@ input {
   border: 1px solid black;
 }
 
+input:hover {
+  background-color:#B0CFDE
+}
+
 button {
-  height: 2rem;
-  width: 6rem;
+  height: 3rem;
+  width: 9rem;
   font-size: medium;
   margin-right: 0.5rem;
+  border: 1px solid gray;
+  border-radius: 0.4rem;
 }
 
 .app {
@@ -16,7 +22,7 @@ button {
   flex-direction: row;
 }
 .light-bg {
-  background-color: aliceblue;
+  background-color: #BDEDFF;
 }
 
 .sudoku-container {
@@ -39,5 +45,6 @@ button {
 }
 
 .button-bar {
+  max-width: 25%;
   padding: 2rem 4rem 2rem 4rem;
 }
