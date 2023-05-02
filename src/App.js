@@ -33,8 +33,13 @@ function SudokuSolver() {
 
   const handleInputChange = (index, row, e) => {
     const newGrid = [...grid];
-    newGrid[row][index] = parseInt(e.target.value || 0);
-    setGrid(newGrid);
+    const newValue = parseInt(e.target.value || 0);
+    
+    if (newValue >= 0 && newValue <= 9) {
+      newGrid[row][index] = newValue;
+      console.log('newGrid:', newGrid);
+      setGrid(newGrid);
+    }
   };
 
   const solveSudoku = async () => {
@@ -43,7 +48,6 @@ function SudokuSolver() {
   }
 
   const resetSudoku = () => {
-    console.log('reset to start grid:', START_GRID);
     setGrid(JSON.parse(JSON.stringify(START_GRID)));
   }
 
