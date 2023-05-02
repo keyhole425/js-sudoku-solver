@@ -37,10 +37,25 @@ function SudokuSolver() {
   }
 
   const generateSudokuInput = (cell, index, row) => {
+    let cssClasses = 'sudoku-input';
+    const colSquareNum = Math.floor(index / 3);
+    const rowSquareNum = Math.floor(row / 3);
+
+    // 1st & 3rd row of squares
+    if (rowSquareNum === 0 || rowSquareNum === 2) {
+      if (colSquareNum === 0 || colSquareNum === 2) {
+        cssClasses += ' light-bg';
+      }
+    }
+    else {
+      if (colSquareNum === 1) {
+        cssClasses += ' light-bg';
+      }
+    }
     return (
       <input
         type='text'
-        className='sudoku-input'
+        className={cssClasses}
         value={cell === 0 ? '' : cell}
         onChange={(e) => handleInputChange(index, row, e)}
         key={`${row}-${index}`}
