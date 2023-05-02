@@ -32,8 +32,9 @@ function SudokuSolver() {
   const [grid, setGrid] = useState(JSON.parse(JSON.stringify(START_GRID)));
 
   const handleInputChange = (index, row, e) => {
-    grid[row][index] = parseInt(e.target.value);
-    setGrid(grid);
+    const newGrid = [...grid];
+    newGrid[row][index] = parseInt(e.target.value || 0);
+    setGrid(newGrid);
   };
 
   const solveSudoku = async () => {
